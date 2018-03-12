@@ -10,7 +10,6 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 class AES_bmp():
     def __init__(self, img_path='bmp_target.bmp'):
         # self.key = key
-        self.mode = AES.MODE_CBC
         self.img_path = img_path
         self.img_enc_path = 'bmp_encrypted.bmp'
         self.__gethead__()
@@ -112,16 +111,13 @@ class AES_bmp():
             self.mode_str = 'AES.MODE_{0}'.format(mode)
             mode = eval(self.mode_str)
             encryptor = AES.new(key, mode, IV=self.IV)
-            self.mode = mode
-            encrypted_text = unhexlify(b2a_hex(encryptor.encrypt(cleartext)).decode("ASCII"))
 
         elif mode in ['CTR']:
             self.mode_str = 'AES.MODE_{0}'.format(mode)
             mode = eval(self.mode_str)
             ctr = Counter.new(128)
             encryptor = AES.new(key, mode, IV=self.IV, counter=ctr)
-            self.mode = mode
-            encrypted_text = unhexlify(b2a_hex(encryptor.encrypt(cleartext)).decode("ASCII"))
+
 
         else:
             print("AES does't has this mode! Use ECB as default!")
@@ -129,9 +125,9 @@ class AES_bmp():
             self.mode_str = 'AES.MODE_{0}'.format(mode)
             mode = eval(self.mode_str)
             encryptor = AES.new(key, mode, IV=self.IV)
-            self.mode = mode
-            encrypted_text = unhexlify(b2a_hex(encryptor.encrypt(cleartext)).decode("ASCII"))
 
+        self.mode = mode
+        encrypted_text = unhexlify(b2a_hex(encryptor.encrypt(cleartext)).decode("ASCII"))
         self.encrypted_text = encrypted_text
         f_out.write(encrypted_text)
         f_out.close()
@@ -143,7 +139,6 @@ class AES_bmp():
         f_out = open('bmp_decrypted.bmp', 'wb')
         f_out.write(self.header)
         f_out.write(self.div_header)
-        IV = self.key
 
         if self.mode_str == 'AES.MODE_CTR':
             ctr = Counter.new(128)
