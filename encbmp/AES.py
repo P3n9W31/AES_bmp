@@ -1,8 +1,7 @@
 from Crypto.Cipher import AES
 from binascii import b2a_hex, hexlify, unhexlify
-from PIL import Image
+from PIL import Image, ImageFile
 from Crypto.Util import Counter
-from PIL import ImageFile
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
@@ -85,7 +84,8 @@ class AES_bmp():
         print('-------------------------------------------------------')
 
     def encrypt(self, key='keykeykeykeykeyk', mode='ECB'):
-        """Use AES to encrypt target Bitmap file with given key and encrypt mode.
+        """Use AES to encrypt target Bitmap file with given
+        key and encrypt mode.
         mode Support:EBC: Electronic Code Book,
                      CBC: Cipher-Block Chaining,
                      CFB: Cipher FeedBack,
@@ -166,3 +166,13 @@ class AES_bmp():
         """
         im = Image.open('bmp_decrypted.bmp')
         im.show()
+
+
+if __name__ == '__main__':
+    bmp = AES_bmp(img_path='../pic/bmp_target.bmp')
+    bmp.show_header()
+    bmp.show_div_header()
+    bmp.encrypt(mode='ECB')
+    bmp.show_enc()
+    bmp.decrypt()
+    bmp.show_dec()
