@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # encbmp
 A light, easy using tool to parse, encrypt and decrypt Bitmap file in AES.
 
@@ -13,6 +14,16 @@ pip install encbmp
 from encbmp import AES
 
 bmp = AES.AES_bmp(img_path='bmp_target.bmp') # Load Bitmap file
+=======
+# AES_bmp
+A light, easy using class to parse, encrypt and decrypt Bitmap file in AES.
+## Usage
+
+```python
+from AES import AES_bmp
+
+bmp = AES_bmp(img_path='bmp_target.bmp') # Load Bitmap file
+>>>>>>> 9fefaaf10acd6fb6a4b18d3c921b1e922e4215c3
 
 bmp.show_header() # Show the Bitmap file Header information
 bmp.show_div_header() # # Show the DIV Header information
