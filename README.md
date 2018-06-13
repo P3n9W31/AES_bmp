@@ -1,5 +1,11 @@
 
 # encbmp
+
+[![PyPI version](https://badge.fury.io/py/encbmp.svg)](https://badge.fury.io/py/encbmp)
+
+
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/ZhanPwBibiBibi/AES_bmp/blob/master/LICENSE.md)
+
 A light, easy using tool to parse, encrypt and decrypt Bitmap file in AES.
 
 ## Install 
