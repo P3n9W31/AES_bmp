@@ -9,13 +9,13 @@ __license__ = "MIT"
 
 setup(
     name='encbmp',
-    version='0.0.6',
+    version='0.0.7',
     description=__description__,
     author='ZhanPw',
     author_email='zhanpw97@gmail.com',
     license=__license__,
     packages=find_packages(),
-    install_requires=['Crypto',
+    install_requires=['pycrypto',
                       'Pillow'],
     platforms=["all"],
     url='https://github.com/ZhanPwBibiBibi/AES_bmp',
