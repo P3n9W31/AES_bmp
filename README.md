@@ -31,4 +31,4 @@ bmp.show_dec()
 ```
 
 ## Output
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fpa521aqmwj31kw30ox6r.jpg)
+![](https://github.com/P3n9W31/AES_bmp/blob/master/pic/usage.bmp)
